@@ -1,0 +1,90 @@
+@mixin padding_margin ($pad,$marg){
+	padding: $pad;
+	margin: $marg;
+  }
+ 
+  @mixin flex ($display,$aligin,$justify,$direction,$wrap_nowrap){
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: $display;
+	-webkit-box-align: $aligin;
+	-ms-flex-align: $aligin;
+	align-items: $aligin;
+	-webkit-box-pack: $justify;
+	-ms-flex-pack: $justify;
+	justify-content: $justify;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: $direction;
+	flex-direction: $direction;
+	-ms-flex-wrap: $wrap_nowrap;
+	flex-wrap: $wrap_nowrap;
+  }
+.cellWrap{
+    border: 1px solid gray;
+		padding: 5px;
+		width: 200px;
+		height: 70px;
+		// @include flex(flex,flex-start,flex-start,row, wrap);
+	cursor: pointer;
+	.cell{
+		width: 100%;
+		@include flex(flex,flex-start,flex-start,row, wrap);
+	}
+	&:hover{
+    background: rgb(102, 185, 24);
+}
+}
+.main-wrap{
+	@include flex(flex,center,center,column, nowrap);
+	width: 100%;
+	min-height: 400px;
+	
+}
+.modalWindow-wrap{
+	
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 5000;
+		width: 100%;
+		height: 100%;
+		background-color: gray;
+		opacity: 0.7;
+	  
+	padding: 10px;
+	border: 1px solid blue;
+	
+	position: absolute;	
+	box-sizing: border-box;
+	@include flex(none,center,center,column, nowrap);
+	// opacity: 1;
+	// background: lightcyan;
+   .modalWindow{
+		z-index: 5000;
+		textarea{
+			width: 80%;
+			// margin: 10px;
+			box-sizing: border-box;	
+			width: 300px;
+			height: auto;
+		}
+		.all-btn{
+			margin-top: 10px;
+			width: 300px;
+			@include flex(flex,center,space-between,row, nowrap);
+			box-sizing: border-box;
+		}
+	 }
+	
+}
+.currentCell{
+	background: orange;
+}
+
+.active-click{
+	background: lightgreen;
+	border: 1px solid lightgreen;
+}
+
+
